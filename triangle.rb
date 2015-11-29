@@ -15,19 +15,13 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
-=begin
-  if((a==b) && (b==c) && (c==a))
-  	return :equilateral
-
-  elsif ((a==b) || (b==c) || (c==a))
-  	return :isosceles
-
-  else
-  	return :scalene
-  end
-=end
 
 sides = [a, b, c]
+
+#lines for pass test in about_triangle_2.rb
+raise TriangleError if sides.min <= 0
+raise TriangleError if sides.max * 2 >= [a, b, c].reduce(:+)
+
 sides.uniq!
  if sides.count == 1
  	 return :equilateral
@@ -36,6 +30,10 @@ sides.uniq!
  else
 	 return :scalene
  end
+
+
+
+
 
 end
 
